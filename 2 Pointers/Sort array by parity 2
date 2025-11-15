@@ -1,0 +1,37 @@
+https://leetcode.com/problems/sort-array-by-parity-ii/
+
+✅ Sort Array by Parity II – Classification
+Category:
+👉 Same-direction two pointers (but two independent pointers)
+👉 Even-index pointer + odd-index pointer
+Why it is Two Pointers?
+Because:
+One pointer (i) moves on even indices only: 0, 2, 4, ...
+One pointer (j) moves on odd indices only: 1, 3, 5, ...
+Both move in the same direction, but on separate lanes
+Swap when parity doesn’t match the required position
+This is a special two-pointer pattern called:
+⭐ “Dual-lane Same-direction Two Pointers”''
+
+Multi-lane Pointers (Same direction but independent lanes)
+
+class Solution {
+public:
+    vector<int> sortArrayByParityII(vector<int>& nums) {
+        int e=0, o=1;
+        while(o<nums.size() && e<nums.size()){
+            if(nums[e]%2==0){
+                e+=2;
+            }
+            else if(nums[o]%2!=0){
+                o+=2;
+            }
+            else{
+                swap(nums[e],nums[o]);
+                e+=2;
+                o+=2;
+            }
+        }
+        return nums;
+    }
+};
