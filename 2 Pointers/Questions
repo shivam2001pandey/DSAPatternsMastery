@@ -1,0 +1,62 @@
+1. OPPOSITE DIRECTION TWO POINTERS (L → ← R)
+Use when: array sorted or when shrinking search space, or pair-based logic.
+1️⃣ Sort array by parity
+Why: Even numbers on left, odd on right ⇒ shrink both sides.
+Pointers: l moves forward until odd, r backwards until even → swap.
+2️⃣ Partition array by a given pivot
+Same logic as quicksort partition.
+l moves right until it finds > pivot,
+r moves left until it finds < pivot → swap.
+3️⃣ 2 Sum (sorted)
+Classic opposite direction.
+If sum < target → l++
+If sum > target → r--
+4️⃣ 3 Sum
+Outer loop + inside two-pointer (L→R).
+Fix i, then find pair using two pointers.
+5️⃣ 3 Sum Closest
+Same as 3-sum but track minimum difference.
+6️⃣ Container With Most Water
+Perfect opposite pointer:
+Move pointer with smaller height.
+7️⃣ Sort Colors (Dutch flag) – partial
+Actually a variant of 3-way partition, but uses 3 pointers (l, mid, r).
+This is multi-pointer, not strict opposite-direction, but still pointer-based.
+8️⃣ Lexicographically smallest palindrome (string)
+Two pointers inward → replace mismatching characters with smaller one.
+9️⃣ Reverse words in a string
+Two pointers to reverse characters inside each word.
+1️⃣0️⃣ Sentence similarity III
+Two pointers compare beginning and end words of sentence1 and sentence2.
+
+All above use:
+Shrink inward. Compare elements. Move either left or right depending on condition.
+
+2. SAME-DIRECTION TWO POINTERS (FAST–SLOW)
+Use when:
+removing/keeping filtered elements
+overwriting
+compressing
+scanning forward without shrinking window
+1️⃣ Remove duplicates from sorted array
+Fast scans entire array.
+Slow marks valid position.
+If new element appears → copy to slow.
+2️⃣ Rotate array
+If using reversal technique: not two pointers.
+But if rotating using in-place swapping cycles → not two pointers.
+✔️ Best classification: NOT a two pointer problem. (see below)
+3️⃣ Next permutation
+Not two pointers in strict sense, but uses pointer scan (from right) to find first descending pair, then swap with next larger, then reverse suffix using two pointers.
+→ last step uses two pointers to reverse.
+4️⃣ Find all K-distant indices in array
+This is NOT actually two pointers.
+This is prefix-min or scanning logic.
+No pointer relationship is needed.
+✔️ These use:
+One pointer reads, the other writes.
+
+3. MULTILANE SAME-DIRECTION POINTER
+Sort array by parity 2
+sort colors
+partition array by given pivot
